@@ -29,13 +29,13 @@ pip3 install -r requirements.txt
 
 2. After installing the dependencies, ensure your AWS CLI is configured with the correct credentials and region for deployment. Run the following command and provide:
 
-Your AWS access key ID
+- Your AWS access key ID
+- Your AWS secret access key
+- The AWS Region where you want to deploy (e.g., us-east-1)
 
-Your AWS secret access key
-
-The AWS Region where you want to deploy (e.g., us-east-1)
-
-``` aws configure ```
+``` 
+aws configure
+ ```
 
 This is required for CDK to authenticate and deploy resources into your AWS account.
 
@@ -44,7 +44,7 @@ This is required for CDK to authenticate and deploy resources into your AWS acco
     - user_name: The username for the internal master user to be created within the OpenSearch Domain
     - user_password: The password for the internal master user.
 
-4. Bootstrap the CDK Stack and initate the deployment. Replace `123456789012` with your AWS account number, `us-east-1` with the AWS Region to which you want deploy the solution.
+4. Bootstrap the CDK Stack and initiate the deployment. Replace `123456789012` with your AWS account number, `us-east-1` with the AWS Region to which you want deploy the solution (use the same region you specified in step 2 during aws configure).
 
 ```
 cdk bootstrap 123456789012/us-east-1

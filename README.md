@@ -51,7 +51,7 @@ cdk bootstrap 123456789012/us-east-1
 cdk deploy --all
 ```
 
-The whole process takes about **30-45 minutes** to complete.
+The whole process takes about **30-40 minutes** to complete.
 
 
 ## Create the OpenSearch Objects

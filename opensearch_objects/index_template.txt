@@ -1,0 +1,131 @@
+PUT _index_template/apache-log
+{
+  "index_patterns": [
+    "apache-access-log*"
+  ],
+  "template": {
+    "aliases": {
+      "apache_access_logs": {}
+    },
+    "settings": {
+      "number_of_shards": 3,
+      "number_of_replicas": 1
+    },
+     "mappings": {
+      "properties": {
+        "@log_type": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "@ingestion_timestamp": {
+          "type": "date"
+        },
+        "agent": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "auth": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "bytes": {
+          "type": "integer"
+        },
+        "clientip": {
+          "type": "keyword"
+        },
+        "httpversion": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "ident": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "message": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "referrer": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "request": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "response": {
+          "type": "keyword"
+        },
+        "s3": {
+          "properties": {
+            "bucket": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "key": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "timestamp": {
+          "type": "text"
+        },
+        "verb": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
